@@ -1,0 +1,31 @@
+#include<reg52.h>
+#include<string.h>
+
+int keypad();
+void lcdinit();
+void lcddata();
+void lcd command();
+char inputp[8]="\0";
+
+void main()
+{
+
+	code char pswd[5]="\0";
+	lcdinit();
+	if(strcmp(pswd,"\0")==0)
+		{
+			lcddata("set the password");
+			keypad();
+			strcpy(pswd,inputp);
+		}
+	else
+		{
+		   	lcddata("enter the password");
+			keypad();
+			if(strcmp(pswd,inputp)==0)
+			P3^1=1;
+			else
+			p3^1=0;
+		}
+}
+
